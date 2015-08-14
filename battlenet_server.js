@@ -10,7 +10,7 @@ OAuth.registerService('battlenet', 2, null, function(query) {
       id: identity.id,
       accessToken: OAuth.sealSecret(accessToken),
     },
-    options: {profile: {name: identity.battletag, battletag: identity.battletag}}
+    options: {profile: {name: identity.battletag, battleTag: identity.battletag}}
   };
 });
 

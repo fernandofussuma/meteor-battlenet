@@ -12,12 +12,9 @@ Battlenet.requestCredential = function (options, credentialRequestCompleteCallba
       new ServiceConfiguration.ConfigError());
     return;
   }
+
   var credentialToken = Random.secret();
-
-  var scope = (options && options.requestPermissions) || [];
-
   var loginStyle = OAuth._loginStyle('battlenet', config, options);
-
   var loginUrl =
     'https://' + config.region + '.battle.net/oauth/authorize' +
     '?client_id=' + config.clientId +
