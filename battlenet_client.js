@@ -12,11 +12,13 @@ Battlenet.requestCredential = function (options, credentialRequestCompleteCallba
       new ServiceConfiguration.ConfigError());
     return;
   }
+  
+  var region = (options && options.region) ? options.region : config.region;
 
   var credentialToken = Random.secret();
   var loginStyle = OAuth._loginStyle('battlenet', config, options);
   var loginUrl =
-    'https://' + config.region + '.battle.net/oauth/authorize' +
+    'https://' + region + '.battle.net/oauth/authorize' +
     '?client_id=' + config.clientId +
     '&redirect_uri=' + OAuth._redirectUri('battlenet', config) +
     '&response_type=code' +
